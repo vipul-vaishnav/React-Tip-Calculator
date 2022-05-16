@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = ({ children, color, roundedBottom }) => {
   return (
@@ -10,6 +11,16 @@ const Card = ({ children, color, roundedBottom }) => {
       {children}
     </div>
   );
+};
+
+Card.defaultProps = {
+  color: 'white',
+  roundedBottom: true,
+};
+
+Card.propTypes = {
+  color: PropTypes.string,
+  roundedBottom: PropTypes.bool,
 };
 
 export default Card;
