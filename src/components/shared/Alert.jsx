@@ -5,7 +5,7 @@ const Alert = ({ type, value, removeAlert }) => {
   return (
     <>
       <div
-        className={`absolute top-0 right-0 flex items-center w-full py-3 px-4 mb-4 text-gray-500 bg-white rounded-lg shadow sm:top-4 sm:right-4 sm:max-w-xs ${
+        className={`fixed z-50 top-0 right-0 flex items-center w-full py-3 px-4 mb-4 text-gray-500 bg-white rounded-lg shadow sm:top-4 sm:right-4 sm:max-w-xs ${
           type === 'success' ? 'border-b-strong_cyan border-b-4' : 'border-b-red-500 border-b-4'
         }`}
         role="alert"
