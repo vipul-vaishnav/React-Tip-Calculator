@@ -13,7 +13,7 @@ const tipData = [
 ];
 
 const Form = () => {
-  const { formData, onChange, onSubmit } = useContext(GlobalContext);
+  const { selected, formData, onChange, onSubmit } = useContext(GlobalContext);
 
   const { bill, tip, people } = formData;
 
@@ -45,11 +45,11 @@ const Form = () => {
         </p>
         <ul className="grid grid-cols-2 gap-2 mt-4 md:grid-cols-3">
           {tipData.map((i) => {
-            return <TipVal key={i.id} obj={i} onChange={onChange} />;
+            return <TipVal key={i.id} obj={i} onChange={onChange} selected={selected} />;
           })}
           <li>
             <input
-              className="w-full px-2 py-2 text-2xl font-bold text-right border-0 rounded-md bg-light_greyish_cyan outline-0 text-very_dark_cyan placeholder-dark_grayish_cyan caret-strong_cyan focus:outline-strong_cyan focus:outline-2"
+              className="w-full px-2 py-2 text-2xl font-bold text-right border-0 rounded-md bg-light_greyish_cyan outline-0 text-very_dark_cyan placeholder-dark_grayish_cyan caret-strong_cyan focus:outline-strong_cyan focus:outline-2 "
               type="number"
               name="tip"
               id="tip"

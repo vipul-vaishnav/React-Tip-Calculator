@@ -20,6 +20,9 @@ export const GlobalContextProvider = ({ children }) => {
     });
   };
 
+  // Radio Btns
+  const [selected, setSelected] = useState(null);
+
   //   Form
   const [formData, setFormData] = useState({
     bill: '',
@@ -36,6 +39,21 @@ export const GlobalContextProvider = ({ children }) => {
 
   const onChange = (e) => {
     const newData = { [e.target.id]: e.target.value };
+    if (
+      Object.keys(newData)[0] === '1' ||
+      Object.keys(newData)[0] === '2' ||
+      Object.keys(newData)[0] === '3' ||
+      Object.keys(newData)[0] === '4' ||
+      Object.keys(newData)[0] === '5'
+    ) {
+      const updatedData = { tip: Object.entries(newData)[0][1] };
+      setFormData((prev) => {
+        return {
+          ...prev,
+          ...updatedData,
+        };
+      });
+    }
     setFormData((prev) => {
       return {
         ...prev,
@@ -136,10 +154,14 @@ export const GlobalContextProvider = ({ children }) => {
       tip_val: '0.00',
       total_val: '0.00',
     });
+
+    setSelected(null);
   };
 
   return (
-    <GlobalContext.Provider value={{ alertData, removeAlert, formData, onChange, onSubmit, resultData, onReset }}>
+    <GlobalContext.Provider
+      value={{ alertData, removeAlert, selected, formData, onChange, onSubmit, resultData, onReset }}
+    >
       {children}
     </GlobalContext.Provider>
   );

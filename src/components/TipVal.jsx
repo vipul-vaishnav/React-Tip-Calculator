@@ -1,14 +1,14 @@
 import React from 'react';
 
-const TipVal = ({ obj, onChange }) => {
+const TipVal = ({ obj, onChange, selected }) => {
   const { id, tip } = obj;
 
   return (
     <li>
-      <input type="radio" name="tip" id={id} value={tip} onChange={onChange} hidden />
+      <input type="radio" name="tip" id={id} value={tip} onChange={onChange} selected={selected === tip} hidden />
       <label
         htmlFor={id}
-        className="block font-bold text-center bg-very_dark_cyan w-full h-full cursor-pointer text-white py-2 px-2 text-2xl rounded-md overflow-hidden hover:bg-light_grayish_cyan hover:text-very_dark_cyan"
+        className={`block w-full h-full px-2 py-2 overflow-hidden text-2xl font-bold text-center text-white rounded-md cursor-pointer bg-very_dark_cyan hover:bg-light_grayish_cyan hover:text-very_dark_cyan`}
       >
         {tip}%
       </label>
