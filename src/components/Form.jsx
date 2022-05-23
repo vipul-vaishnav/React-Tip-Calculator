@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import TipVal from './TipVal';
 import Dollar from '../images/icon-dollar.svg';
 import Person from '../images/icon-person.svg';
-import GlobalContext from '../context/GlobalContext';
+import GlobalContext from '../context/Global/GlobalContext';
 
 const tipData = [
   { id: 1, tip: 5 },

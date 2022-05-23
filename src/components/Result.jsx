@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Card from './shared/Card';
-import GlobalContext from '../context/GlobalContext';
+import GlobalContext from '../context/Global/GlobalContext';
 
 const Result = () => {
   const { resultData, onReset } = useContext(GlobalContext);
