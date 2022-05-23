@@ -4,21 +4,21 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
   // Alert
-  const [alertData, setAlertData] = useState({
-    show: false,
-    type: 'success',
-    value: 'Tip Calculated Successfully',
-  });
+  // const [alertData, setAlertData] = useState({
+  //   show: false,
+  //   type: 'success',
+  //   value: 'Tip Calculated Successfully',
+  // });
 
-  const removeAlert = () => {
-    const newData = { ...alertData, show: false };
-    setAlertData((prev) => {
-      return {
-        ...prev,
-        ...newData,
-      };
-    });
-  };
+  // const removeAlert = () => {
+  //   const newData = { ...alertData, show: false };
+  //   setAlertData((prev) => {
+  //     return {
+  //       ...prev,
+  //       ...newData,
+  //     };
+  //   });
+  // };
 
   // Radio Btns
   const [selected, setSelected] = useState(null);
@@ -75,71 +75,71 @@ export const GlobalContextProvider = ({ children }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (Number(people) <= 0 && Number(bill) <= 0) {
-      const newData = { ...alertData, show: true, type: 'warn', value: 'Field Values must be greater than zero' };
-      setAlertData((prev) => {
-        return {
-          ...prev,
-          ...newData,
-        };
-      });
-      setTimeout(() => {
-        removeAlert();
-      }, 3000);
+      // const newData = { ...alertData, show: true, type: 'warn', value: 'Field Values must be greater than zero' };
+      // setAlertData((prev) => {
+      //   return {
+      //     ...prev,
+      //     ...newData,
+      //   };
+      // });
+      // setTimeout(() => {
+      //   removeAlert();
+      // }, 3000);
       return;
     } else if (Number(bill) <= 0) {
-      const newData = { ...alertData, show: true, type: 'warn', value: 'Bill value must be greater than zero' };
-      setAlertData((prev) => {
-        return {
-          ...prev,
-          ...newData,
-        };
-      });
-      setTimeout(() => {
-        removeAlert();
-      }, 3000);
+      // const newData = { ...alertData, show: true, type: 'warn', value: 'Bill value must be greater than zero' };
+      // setAlertData((prev) => {
+      //   return {
+      //     ...prev,
+      //     ...newData,
+      //   };
+      // });
+      // setTimeout(() => {
+      //   removeAlert();
+      // }, 3000);
       return;
     } else if (Number(tip) < 0) {
-      const newData = { ...alertData, show: true, type: 'warn', value: 'Tip Value must not be negative' };
-      setAlertData((prev) => {
-        return {
-          ...prev,
-          ...newData,
-        };
-      });
-      setTimeout(() => {
-        removeAlert();
-      }, 3000);
+      // const newData = { ...alertData, show: true, type: 'warn', value: 'Tip Value must not be negative' };
+      // setAlertData((prev) => {
+      //   return {
+      //     ...prev,
+      //     ...newData,
+      //   };
+      // });
+      // setTimeout(() => {
+      //   removeAlert();
+      // }, 3000);
       return;
     } else if (Number(people) <= 0) {
-      const newData = { ...alertData, show: true, type: 'warn', value: 'Number of people must be greater than zero' };
-      setAlertData((prev) => {
-        return {
-          ...prev,
-          ...newData,
-        };
-      });
-      setTimeout(() => {
-        removeAlert();
-      }, 3000);
+      // const newData = { ...alertData, show: true, type: 'warn', value: 'Number of people must be greater than zero' };
+      // setAlertData((prev) => {
+      //   return {
+      //     ...prev,
+      //     ...newData,
+      //   };
+      // });
+      // setTimeout(() => {
+      //   removeAlert();
+      // }, 3000);
       return;
     } else if (Number(people) > 0 && Number(bill) > 0 && Number(tip) >= 0) {
-      const newAlertData = { ...alertData, show: true, type: 'success', value: 'Tip Calculated Successfully' };
+      // const newAlertData = { ...alertData, show: true, type: 'success', value: 'Tip Calculated Successfully' };
       const newResult = { tip_val: calcTip(), total_val: calcTotal() };
-      setAlertData((prev) => {
-        return {
-          ...prev,
-          ...newAlertData,
-        };
-      });
+      // setAlertData((prev) => {
+      //   return {
+      //     ...prev,
+      //     ...newAlertData,
+      //   };
+      // });
       setResultData((prev) => {
         return {
           ...prev,
           ...newResult,
         };
       });
-      setTimeout(() => {
-        removeAlert();
-      }, 3000);
+      // setTimeout(() => {
+      //   removeAlert();
+      // }, 3000);
     }
   };
 
@@ -159,9 +159,7 @@ export const GlobalContextProvider = ({ children }) => {
   };
 
   return (
-    <GlobalContext.Provider
-      value={{ alertData, removeAlert, selected, formData, onChange, onSubmit, resultData, onReset }}
-    >
+    <GlobalContext.Provider value={{ selected, formData, onChange, onSubmit, resultData, onReset }}>
       {children}
     </GlobalContext.Provider>
   );

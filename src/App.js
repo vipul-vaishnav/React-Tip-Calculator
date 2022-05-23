@@ -4,10 +4,10 @@ import Form from './components/Form';
 import Result from './components/Result';
 import Card from './components/shared/Card';
 import Alert from './components/shared/Alert';
-import GlobalContext from './context/GlobalContext';
+import AlertContext from './context/Alert/AlertContext';
 
 const App = () => {
-  const { alertData, removeAlert } = useContext(GlobalContext);
+  const { alertData, removeAlert } = useContext(AlertContext);
 
   const { show, type, value } = alertData;
 
